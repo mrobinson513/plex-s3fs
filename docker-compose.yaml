@@ -1,0 +1,6 @@
+version: 3
+
+services:
+  plex:
+    image: "path_to_my/image:tag"
+    

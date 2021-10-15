@@ -2,7 +2,9 @@
 
 # Run script as init container
 
-echo "${PLEX_S3_ACCESS_KEY}:${PLEX_S3_SECRET_KEY}" > "/etc/passwd-s3fs"
+echo "${PLEX_S3_ACCESS_KEY}:${PLEX_S3_SECRET_KEY}" > /etc/passwd-s3fs
+
+chmod 600 /etc/passwd-s3fs
 
 if ! [ -d "/mnt/${PLEX_S3_BUCKET}" ]; then
 		mkdir -p "/mnt/${PLEX_S3_BUCKET}"

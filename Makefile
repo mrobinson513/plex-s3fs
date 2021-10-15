@@ -29,3 +29,11 @@ start:
 stop:
 	@docker-compose down --remove-orphans
 	@docker-compose rm -s -f
+
+secret:
+	@kubectl -n plex create secret generic plex-credentials \
+	--from-literal=s3-access-key=$${PLEX_S3_ACCESS_KEY} \
+	--from-literal=s3-secret-key=$${PLEX_S3_SECRET_KEY} \
+	--from-literal=claim-token=$${PLEX_CLAIM_TOKEN}
+
+
